@@ -1,0 +1,44 @@
+Facture location #9
+
+Liste des véhicules loués
+
+- Marque : Peugeot
+- Etat : Bon état
+- Carburant : 25%
+- Kilomètres parcourus : 21km
+- Prix/jour : 150€
+
+- Marque : FIAT
+- Etat : Bon état
+- Carburant : 0%
+- Kilomètres parcourus : 30km
+- Prix/jour : 32€
+
+- Marque : FIAT
+- Etat : Bon état
+- Carburant : 25%
+- Kilomètres parcourus : 0km
+- Prix/jour : 32€
+
+- Marque : Lamborghini
+- Etat : Bon état
+- Carburant : 25%
+- Kilomètres parcourus : 5000km
+- Prix/jour : 1290€
+
+- Marque : Lamborghini
+- Etat : Bon état
+- Carburant : 50%
+- Kilomètres parcourus : 490km
+- Prix/jour : 1290€
+
+- Prix de la location : 0.0€
+
+Majorations
+
+- Assurance : 125.0€
+- Etat : 336.0€
+- Retard : 0.0€
+- Carburant : 125.0€
+
+- Total : 586.0€

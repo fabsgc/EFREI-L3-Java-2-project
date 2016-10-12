@@ -1,0 +1,132 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="vehicles" type="java.util.List" *#
+#* @vtlvariable name="vehicle" type="com.location.model.Vehicle" *#
+#* @vtlvariable name="order" type="java.lang.String" *#
+#* @vtlvariable name="type" type="java.lang.String" *#
+#* @vtlvariable name="search" type="java.lang.String" *#
+#* @vtlvariable name="showBike" type="java.lang.String" *#
+#* @vtlvariable name="showCar" type="java.lang.String" *#
+#* @vtlvariable name="showCarLuxury" type="java.lang.String" *#
+#parse("/templates/includes/header.vm")
+
+<a href="/vehicles/create" class="button right">Nouveau véhicule</a>
+
+#if($showBike.equals("1"))
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=0&showCar=$showCar&showCarLuxury=$showCarLuxury" class="button blue left"><span class="fa fa-times"></span> Motos</a>
+#else
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=1&showCar=$showCar&showCarLuxury=$showCarLuxury" class="button left"><span class="fa fa-check"></span> Motos</a>
+#end
+
+#if($showCar.equals("1"))
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=$showBike&showCar=0&showCarLuxury=$showCarLuxury" class="button blue left"><span class="fa fa-times"></span> Voitures standards</a>
+#else
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=$showBike&showCar=1&showCarLuxury=$showCarLuxury" class="button left"><span class="fa fa-check"></span> Voitures standards</a>
+#end
+
+#if($showCarLuxury.equals("1"))
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=$showBike&showCar=$showCar&showCarLuxury=0" class="button blue left"><span class="fa fa-times"></span> Voitures de luxe</a>
+#else
+    <a href="/vehicles?search=$search&order=$order&type=$type&showBike=$showBike&showCar=$showCar&showCarLuxury=1" class="button left"><span class="fa fa-check"></span> Voitures de luxe</a>
+#end
+
+<div class="clear-right"></div>
+
+<form action="/vehicles" method="get">
+    <select id="vehicle-search" name="search">
+        <option value="" #if($search.equals("")) selected="selected" #end>Toutes les marques</option>
+        #foreach($brand in $brands)
+            <option value="$brand["brand"]" #if($search.equals($brand["brand"])) selected="selected" #end>
+                $brand["brand"]
+            </option>
+        #end
+    </select>
+
+    <input type="submit" value="Actualiser" id="vehicle-search-submit"/>
+
+    <input type="hidden" name="order" value="$order"/>
+    <input type="hidden" name="type" value="$type"/>
+    <input type="hidden" name="showBike" value="$showBike"/>
+    <input type="hidden" name="showCar" value="$showCar"/>
+    <input type="hidden" name="showCarLuxury" value="$showCarLuxury"/>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Type</th>
+            <th>
+                Marque
+                #if($order.equals("brand"))
+                    #if($type.equals("asc"))
+                        <a href="?search=$search&order=brand&type=desc&showBike=$showBike&showCar=$showCar&showCarLuxury=$showCarLuxury">
+                            <span class="fa fa-arrow-down"></span>
+                        </a>
+                    #else
+                        <a href="?search=$search&order=brand&type=asc&showBike=$showBike&showCar=$showCar&showCarLuxury=$showCarLuxury">
+                            <span class="fa fa-arrow-up"></span>
+                        </a>
+                    #end
+                #else
+                    <a href="?search=$search&order=brand&type=asc&showBike=$showBike&showCar=$showCar&showCarLuxury=$showCarLuxury">
+                        <span class="fa fa-arrow-up"></span>
+                    </a>
+                #end
+            </th>
+            <th>Modèle</th>
+            <th>Cylindrée</th>
+            <th>Exemplaires</th>
+            <th class="action">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($vehicles.size() > 0)
+            #foreach($vehicle in $vehicles)
+                <tr>
+                    <td>
+                        #if($vehicle.getType() == 1)
+                            voiture
+
+                            #if($vehicle.getLuxury() == 1)
+                                de luxe
+                            #else
+                                standard
+                            #end
+                        #else
+                            moto
+                        #end
+                    </td>
+                    <td>
+                        <a href="/vehicles/$vehicle.getId()">$vehicle.getBrand()</a>
+                    </td>
+                    <td>
+                        #if($vehicle.getType() == 1)
+                            $vehicle.getModel()
+                        #else
+                            -
+                        #end
+                    </td>
+                    <td>
+                        #if($vehicle.getType() == 2)
+                            $vehicle.getCylinder()
+                        #else
+                            -
+                        #end
+                    </td>
+                    <td>
+                        $vehicle.getSpecimenList().size()
+                    </td>
+                    <td>
+                        <a href="/vehicles/update/$vehicle.getId()"><span class="fa fa-pencil"></span></a>
+                        <a href="/vehicles/delete/$vehicle.getId()"><span class="fa fa-times"></span></a>
+                    </td>
+                </tr>
+            #end
+        #else
+        <tr>
+            <td class="empty" colspan="5">
+                <h5>Aucun véhicule trouvé</h5>
+            </td>
+        </tr>
+        #end
+    </tbody>
+</table>
+#parse("/templates/includes/footer.vm")

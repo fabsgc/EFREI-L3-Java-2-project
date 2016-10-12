@@ -1,0 +1,49 @@
+#* @vtlvariable name="data" type="java.util.HashMap" *#
+#* @vtlvariable name="request" type="spark.Request" *#
+#parse("/templates/includes/header.vm")
+<form method="POST" action="/vehicles/update/$request.params().get(":id")">
+    <input type="hidden" name="vehicle"/>
+    <label for="type">Type</label>
+    <select name="type" id="type">
+        <option value="1" #if($data.get("type").equals("1")) selected="selected" #end>Voiture</option>
+        <option value="2" #if($data.get("type").equals("2")) selected="selected" #end>Moto</option>
+    </select><br />
+    <label for="priceday">Prix journalier</label>
+    <input type="number" id="priceday" name="priceday" value="$data["priceday"]"/><br />
+    <label for="brand">Marque</label>
+    <input type="text" id="brand" name="brand" value="$data["brand"]"><br />
+    <div id="model-block" #if($data.get("type").equals("2")) class="hidden" #end>
+        <label for="model">Modèle</label>
+        <input type="text" id="model" name="model" value="$data["model"]"><br />
+    </div>
+    <div id="cylinder-block" #if($data.get("type").equals("1")) class="hidden" #end>
+        <label for="cylinder">Cylindrée</label>
+        <input type="text" id="cylinder" name="cylinder" value="$data["cylinder"]"><br />
+    </div>
+    <div id="luxury-block" #if($data.get("type").equals("2")) class="hidden" #end>
+        <label for="luxury">Type de voiture</label>
+        <select name="luxury" id="type">
+            <option value="0" #if($data.get("luxury").equals("1")) selected="selected" #end>standard</option>
+            <option value="1" #if($data.get("luxury").equals("2")) selected="selected" #end>luxe</option>
+        </select>
+    </div>
+    <input type="submit" value="Mettre à jour"/>
+</form>
+
+<script type="text/javascript">
+    $('#type').change(function(){
+        if($(this).val() == '1'){
+            $('#model-block').removeClass('hidden');
+            $('#luxury-block').removeClass('hidden');
+            $('#cylinder-block').addClass('hidden');
+        }
+        else{
+            $('#model-block').addClass('hidden');
+            $('#luxury-block').addClass('hidden');
+            $('#cylinder-block').removeClass('hidden');
+        }
+    });
+
+</script>
+
+#parse("/templates/includes/footer.vm")

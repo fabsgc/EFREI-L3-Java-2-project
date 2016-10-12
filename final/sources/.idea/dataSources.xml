@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="1643258318">
+    <data-source source="LOCAL" name="PostgreSQL - efrei-location@localhost" uuid="39c1a048-8cd7-479a-8ee7-e08a455f9f5e">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/efrei-location</jdbc-url>
+    </data-source>
+  </component>
+</project>

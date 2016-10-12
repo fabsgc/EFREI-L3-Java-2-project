@@ -1,0 +1,49 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="rental" type="com.location.model.Rental" *#
+#* @vtlvariable name="specimen" type="com.location.model.Specimen" *#
+#* @vtlvariable name="specimens" type="java.util.ArrayList" *#
+#* @vtlvariable name="data" type="java.util.ArrayList" *#
+#* @vtlvariable name="date" type="java.lang.String" *#
+#* @vtlvariable name="dateTool" type="org.apache.velocity.tools.generic.DateTool" *#
+#parse("/templates/includes/header.vm")
+<form action="/rentals/back/$request.params(":id")" method="post">
+    <input type="hidden" name="rental"/>
+
+    #set($Integer = 1)
+    #foreach($specimen in $specimens)
+        #set($stringState = "state-" + $specimen.getId())
+        #set($stringFuel = "fuel-" + $specimen.getId())
+        #set($stringKilometers = "kilometers-" + $specimen.getId())
+        <h4>$specimen.getVehicle().getBrand() - $specimen.getRegistrationPlate()</h4>
+        <label for="state-$specimen.getId()">Etat véhicule </label>
+        <select name="state-$specimen.getId()" id="state-$specimen.getId()">
+            <option value="1" #if($request.queryMap($stringState) && $request.queryMap($stringState).value().equals("1")) selected="selected" #end>Bon état</option>
+            <option value="0" #if($request.queryMap($stringState) && $request.queryMap($stringState).value().equals("0")) selected="selected" #end>Mauvais état</option>
+        </select><br />
+        <label for="fuel-$specimen.getId()">Carburant véhicule</label>
+        <select name="fuel-$specimen.getId()" id="fuel-$specimen.getId()">
+            <option value="100" #if($request.queryMap($stringFuel) && $request.queryMap($stringFuel).value().equals("100")) selected="selected" #end>100%</option>
+            <option value="75" #if($request.queryMap($stringFuel) && $request.queryMap($stringFuel).value().equals("75")) selected="selected" #end>75%</option>
+            <option value="50" #if($request.queryMap($stringFuel) && $request.queryMap($stringFuel).value().equals("50")) selected="selected" #end>50%</option>
+            <option value="25" #if($request.queryMap($stringFuel) && $request.queryMap($stringFuel).value().equals("25")) selected="selected" #end>25%</option>
+            <option value="0" #if($request.queryMap($stringFuel) && $request.queryMap($stringFuel).value().equals("0")) selected="selected" #end>0%</option>
+        </select><br />
+        #set($kilometers = 0)
+
+        #if($request.queryMap($stringKilometers))
+            #set($kilometers = $request.queryMap($stringKilometers).value())
+        #end
+
+        <label for="kilometers-$specimen.getId()">Kilomètres véhicule </label>
+        <input type="number" name="kilometers-$specimen.getId()" id="kilometers-$specimen.getId()" value="$kilometers"/><br />
+
+        #if($Integer < $specimens.size())
+            <br />
+        #end
+
+        #set($Integer = $Integer + 1)
+    #end
+
+    <input type="submit" value="Rendre"/>
+</form>
+#parse("/templates/includes/footer.vm")

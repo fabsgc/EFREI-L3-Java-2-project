@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="PostgreSQL - efrei-location@localhost" uuid="39c1a048-8cd7-479a-8ee7-e08a455f9f5e">
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <schema-pattern>efrei-location.pg_catalog efrei-location.public</schema-pattern>
+      <default-schemas>efrei-location.public</default-schemas>
+    </data-source>
+  </component>
+</project>

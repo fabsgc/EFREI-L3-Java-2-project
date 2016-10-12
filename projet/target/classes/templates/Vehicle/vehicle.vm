@@ -1,0 +1,119 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="vehicle" type="com.location.model.Vehicle" *#
+#* @vtlvariable name="order" type="java.lang.String" *#
+#* @vtlvariable name="type" type="java.lang.String" *#
+#* @vtlvariable name="search" type="java.lang.String" *#
+#* @vtlvariable name="kilometer1" type="int" *#
+#* @vtlvariable name="kilometer2" type="int" *#
+#* @vtlvariable name="specimens" type="java.util.ArrayList" *#
+#* @vtlvariable name="specimen" type="com.location.model.Specimen" *#
+#parse("/templates/includes/header.vm")
+<a href="/vehicles/specimens/create/$request.params(":id")" class="button right">Nouvel exemplaire</a>
+<h3>Informations sur la location</h3>
+<ul>
+    <li>
+        <strong>Type : </strong>
+        #if($vehicle.getType() == 1)
+            voiture
+
+            #if($vehicle.getLuxury() == 1)
+                de luxe
+            #else
+                standard
+            #end
+        #else
+            moto
+        #end
+    </li>
+    <li><strong>Marque : </strong>$vehicle.getBrand()</li>
+    #if($vehicle.getType() == 1)
+        <li><strong>Modèle : </strong>$vehicle.getModel()</li>
+    #end
+    #if($vehicle.getType() == 2)
+        <li><strong>Modèle : </strong>$vehicle.getCylinder()</li>
+    #end
+</ul>
+<br />
+<h3>Liste des exemplaires</h3>
+<form action="/vehicles/$request.params(":id")" method="get">
+    <label id="vehicle-search-kilometers">Recherche kilométrique</label>
+    <input type="number" class="vehicle-search-kilometers" id="vehicle-search-kilometer-1" value="$kilometer1" min="0"/>
+    <input type="number" class="vehicle-search-kilometers" id="vehicle-search-kilometer-2" value="$kilometer2" min="0"/>
+    <input type="hidden" name="search" id="vehicle-search" value="$kilometer1.$kilometer2"/>
+    <input type="hidden" name="order" value="$order"/>
+    <input type="hidden" name="type" value="$type"/>
+    <input type="submit" value="Actualiser" id="vehicle-search-submit"/>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Immatriculation</th>
+            <th>Etat</th>
+            <th>Carburant</th>
+            <th>
+                Kilomètres
+                #if($order.equals("kilometers"))
+                    #if($type.equals("asc"))
+                        <a href="?search=$search&order=kilometers&type=desc">
+                            <span class="fa fa-arrow-down"></span>
+                        </a>
+                    #else
+                        <a href="?search=$search&order=kilometers&type=asc">
+                            <span class="fa fa-arrow-up"></span>
+                        </a>
+                    #end
+                #else
+                    <a href="?search=$search&order=kilometers&type=asc">
+                        <span class="fa fa-arrow-up"></span>
+                    </a>
+                #end
+            </th>
+            <th>Emprunteur</th>
+            <th class="action">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($specimens.size() > 0)
+            #foreach($specimen in $specimens)
+                <tr>
+                    <td>$specimen.getRegistrationPlate()</td>
+                    <td>
+                        #if($specimen.getState() == 1)
+                            Bon état
+                        #else
+                            Mauvais état
+                        #end
+                    </td>
+                    <td>$specimen.getFuel() %</td>
+                    <td>$specimen.getKilometers() km</td>
+                    <td>
+                        #if(!$specimen.getRental())
+                            -
+                        #else
+                            $specimen.getRental().getBorrower().getFirstName()
+                            $specimen.getRental().getBorrower().getLastName()
+                        #end
+                    </td>
+                    <td>
+                        <a href="/vehicles/specimens/update/$specimen.getId()"><span class="fa fa-pencil"></span></a>
+                        #if(!$specimen.getRental())
+                            <a href="/vehicles/specimens/delete/$specimen.getId()"><span class="fa fa-times"></span></a>
+                        #end
+                    </td>
+                </tr>
+            #end
+        #else
+            <td class="empty" colspan="6">
+                <h5>Aucun véhicule trouvé</h5>
+            </td>
+        #end
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $('.vehicle-search-kilometers').change(function(){
+        $('#vehicle-search').val($('#vehicle-search-kilometer-1').val() + '.' + $('#vehicle-search-kilometer-2').val());
+    });
+</script>
+
+#parse("/templates/includes/footer.vm")

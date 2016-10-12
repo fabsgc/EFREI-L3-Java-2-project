@@ -1,0 +1,74 @@
+#* @vtlvariable name="specimens" type="java.util.ArrayList" *#
+#* @vtlvariable name="specimen" type="com.location.model.Specimen" *#
+#* @vtlvariable name="rental" type="com.location.model.Rental" *#
+#* @vtlvariable name="dateTool" type="org.apache.velocity.tools.generic.DateTool" *#
+#parse("/templates/includes/header.vm")
+<h3>Informations sur la location</h3>
+<ul>
+    <li><strong>Emprunteur : </strong>$rental.getBorrower().getFirstName() $rental.getBorrower().getLastName()</li>
+    <li><strong>Début : </strong>$dateTool.format("dd/MM/yyyy", $rental.getBegin())</li>
+    <li><strong>Fin : </strong>$dateTool.format("dd/MM/yyyy", $rental.getEnd())</li>
+    <li><strong>Assurance : </strong>#if($rental.getInsurance()) oui #else non #end</li>
+    <li><strong>Prix prévisionnel</strong> : $rental.getBill()</li>
+</ul>
+<h3>Liste des exemplaires</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Immatriculation</th>
+            <th>Etat</th>
+            <th>Carburant</th>
+            <th>Kilomètres</th>
+            <th>Emprunteur</th>
+            <th>Type</th>
+            <th>Marque</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($specimens.size() > 0)
+            #foreach($specimen in $specimens)
+                <tr>
+                    <td>$specimen.getRegistrationPlate()</td>
+                    <td>
+                        #if($specimen.getState() == 1)
+                            Bon état
+                        #else
+                            Mauvais état
+                        #end
+                    </td>
+                    <td>$specimen.getFuel() %</td>
+                    <td>$specimen.getKilometers()</td>
+                    <td>
+                        #if(!$specimen.getRental())
+                            -
+                        #else
+                            $specimen.getRental().getBorrower().getFirstName()
+                            $specimen.getRental().getBorrower().getLastName()
+                        #end
+                    </td>
+                    <td>
+                        #if($specimen.getVehicle().getType() == 1)
+                            voiture
+
+                            #if($specimen.getVehicle().getLuxury() == 1)
+                                de luxe
+                            #else
+                                standard
+                            #end
+                        #else
+                            moto
+                        #end
+                    </td>
+                    <td>
+                        <a href="/vehicles/$specimen.getVehicle().getId()">$specimen.getVehicle().getBrand()</a>
+                    </td>
+                </tr>
+            #end
+        #else
+        <td class="empty" colspan="7">
+            <h5>Aucun véhicule trouvé</h5>
+        </td>
+        #end
+    </tbody>
+</table>
+#parse("/templates/includes/footer.vm")

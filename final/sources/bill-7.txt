@@ -1,0 +1,26 @@
+Facture location #7
+
+Liste des véhicules loués
+
+- Marque : Peugeot
+- Etat : Bon état
+- Carburant : 25%
+- Kilomètres parcourus : 3km
+- Prix/jour : 150€
+
+- Marque : Fiat
+- Etat : Bon état
+- Carburant : 50%
+- Kilomètres parcourus : 4km
+- Prix/jour : 10€
+
+- Prix de la location : 0.0€
+
+Majorations
+
+- Assurance : 50.0€
+- Etat : 112.0€
+- Retard : 0.0€
+- Carburant : 75.0€
+
+- Total : 237.0€

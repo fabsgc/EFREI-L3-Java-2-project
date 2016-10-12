@@ -1,0 +1,18 @@
+#* @vtlvariable name="data" type="java.util.HashMap" *#
+#parse("/templates/includes/header.vm")
+
+<form method="POST" action="/user">
+    <input type="hidden" name="user"/>
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email" value="$data["email"]"><br />
+    <label for="username">Nom d'utilisateur</label>
+    <input type="text" id="username" name="username" value="$data["username"]"><br />
+    <label for="firtname">Prénom</label>
+    <input type="text" id="firstname" name="firstname" value="$data["firstname"]"><br />
+    <label for="lastname">Nom</label>
+    <input type="text" id="lastname" name="lastname" value="$data["lastname"]"><br />
+    <label for="password">Mot de passe</label>
+    <input type="password" id="password" name="password" value=""><br />
+    <input type="submit" value="Mettre à jour"/>
+</form>
+#parse("/templates/includes/footer.vm")

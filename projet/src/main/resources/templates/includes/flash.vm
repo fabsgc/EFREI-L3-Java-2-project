@@ -1,0 +1,21 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="errors" type="java.util.Map" *#
+
+#if($errors && $errors.size() > 0)
+    <div class="alert alert-error">
+        <ul>
+            #foreach($error in $errors.entrySet())
+                #foreach($errorVar in $error.value)
+                    <li>$errorVar</li>
+                #end
+            #end
+        </ul>
+    </div>
+#end
+
+#if($request.session().attribute("flash"))
+    <div class="alert alert-success">
+        <div class="close" onclick="closeFlashMessage(this);"><span class="fa fa-times">&nbsp;</span> </div>
+            $request.session().attribute("flash")
+    </div>
+#end

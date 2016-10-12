@@ -1,0 +1,153 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="borrowers" type="java.util.List" *#
+#* @vtlvariable name="vehicles" type="java.util.List" *#
+#* @vtlvariable name="vehicle" type="com.location.model.Vehicle" *#
+#* @vtlvariable name="borrower" type="com.location.model.Borrower" *#
+#* @vtlvariable name="order" type="java.lang.String" *#
+#* @vtlvariable name="type" type="java.lang.String" *#
+#* @vtlvariable name="by" type="java.lang.String" *#
+#* @vtlvariable name="search" type="java.lang.String" *#
+#* @vtlvariable name="showRentals" type="java.lang.String" *#
+#* @vtlvariable name="showNoRentals" type="java.lang.String" *#
+#parse("/templates/includes/header.vm")
+<a href="/borrowers/create" class="button right">Nouvel emprunteur</a>
+
+#if($showRentals.equals("1"))
+    <a href="/borrowers?by=$by&search=$search&order=$order&type=$type&showRentals=0&showNoRentals=$showNoRentals" class="button blue left"><span class="fa fa-times"></span> Locations en cours</a>
+#else
+    <a href="/borrowers?search=$search&order=$order&type=$type&showRentals=1&showNoRentals=$showNoRentals" class="button left"><span class="fa fa-check"></span> Locations en cours</a>
+#end
+
+#if($showNoRentals.equals("1"))
+    <a href="/borrowers?search=$search&order=$order&type=$type&showRentals=$showRentals&showNoRentals=0" class="button blue left"><span class="fa fa-times"></span> Sans locations</a>
+#else
+    <a href="/borrowers?search=$search&order=$order&type=$type&showRentals=$showRentals&showNoRentals=1" class="button left"><span class="fa fa-check"></span> Sans locations</a>
+#end
+
+<div class="clear-right"></div>
+<form action="/borrowers" method="get">
+    <select name="by" id="borrower-search-by">
+        <option value="name" #if($by.equals("name")) selected="selected" #end>Nom</option>
+        <option value="vehicle" #if($by.equals("vehicle")) selected="selected" #end>Véhicule emprunté</option>
+    </select>
+    <input type="hidden" name="search" id="search" value="$search"/>
+
+    <input type="submit" value="Chercher" id="borrower-search-submit"/>
+
+    <input type="text" id="borrower-search-name" placeholder="Votre recherche" #if($by.equals("all") || $by.equals("name")) value="$search" #else class="hidden" #end/>
+
+    <select id="borrower-search-vehicle" #if(!$by.equals("vehicle")) class="hidden" #end>
+        #foreach($vehicle in $vehicles)
+            <option value="$vehicle.getId()" #if(!$search.equals("vehicle") && $vehicle.getId() == $search) selected="selected" #end>
+                #if($vehicle.type == 1)
+                    $vehicle.getBrand() $vehicle.getModel()
+                #else
+                    $vehicle.getBrand() $vehicle.getCylinder()
+                #end
+            </option>
+        #end
+    </select>
+
+    <input type="hidden" name="order" value="$order"/>
+    <input type="hidden" name="type" value="$type"/>
+    <input type="hidden" name="showRentals" value="$showRentals"/>
+    <input type="hidden" name="showNoRentals" value="$showNoRentals"/>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nom
+                #if($order.equals("name"))
+                    #if($type.equals("asc"))
+                        <a href="?by=$by&search=$search&order=name&type=desc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                            <span class="fa fa-arrow-down"></span>
+                        </a>
+                    #else
+                        <a href="?by=$by&search=$search&order=name&type=asc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                            <span class="fa fa-arrow-up"></span>
+                        </a>
+                    #end
+                #else
+                    <a href="?by=$by&search=$search&order=name&type=asc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                        <span class="fa fa-arrow-up"></span>
+                    </a>
+                #end
+            </th>
+            <th>Ville</th>
+            <th class="pc">Code postal</th>
+            <th class="bill">
+                Facture totale
+                #if($order.equals("bill"))
+                    #if($type.equals("asc"))
+                        <a href="?by=$by&search=$search&order=bill&type=desc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                            <span class="fa fa-arrow-down"></span>
+                        </a>
+                    #else
+                        <a href="?by=$by&search=$search&order=bill&type=asc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                            <span class="fa fa-arrow-up"></span>
+                        </a>
+                    #end
+                #else
+                    <a href="?by=$by&search=$search&order=bill&type=asc&showRentals=$showRentals&showNoRentals=$showNoRentals">
+                        <span class="fa fa-arrow-up"></span>
+                    </a>
+                #end
+            </th>
+            <th class="vehicles">Véhicules</th>
+            <th class="action">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($borrowers.size() > 0)
+            #foreach($borrower in $borrowers)
+                <tr>
+                    <td>
+                        $borrower.getFirstName() $borrower.getLastName()
+                    </td>
+                    <td>$borrower.getCity()</td>
+                    <td>$borrower.getPc()</td>
+                    <td>$borrower.getBill() €</td>
+                    <td>$borrower.getSpecimenList().size()</td>
+                    <td>
+                        <a href="/borrowers/update/$borrower.getId()"><span class="fa fa-pencil"></span></a>
+                        #if($borrower.getSpecimenList().size() == 0)
+                            <a href="/borrowers/delete/$borrower.getId()"><span class="fa fa-times"></span></a>
+                        #end
+                    </td>
+                </tr>
+            #end
+        #else
+            <tr>
+                <td class="empty" colspan="6">
+                    <h5>Aucun emprunteur trouvé</h5>
+                </td>
+            </tr>
+        #end
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $("#borrower-search-by").change(function () {
+        if($(this).val() == 'name'){
+            $('#borrower-search-name').removeClass('hidden');
+            $('#borrower-search-vehicle').addClass('hidden');
+            $('#search').val($("#borrower-search-name").val());
+        }
+        else{
+            $('#borrower-search-vehicle').removeClass('hidden');
+            $('#borrower-search-name').addClass('hidden');
+            $('#search').val($("#borrower-search-vehicle").val());
+        }
+    });
+
+    $("#borrower-search-name").change(function () {
+        $('#search').val($("#borrower-search-name").val());
+    });
+
+    $("#borrower-search-vehicle").change(function () {
+        $('#search').val($("#borrower-search-vehicle").val());
+    });
+</script>
+
+#parse("/templates/includes/footer.vm")

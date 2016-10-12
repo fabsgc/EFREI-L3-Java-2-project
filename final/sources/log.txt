@@ -1,0 +1,107 @@
+2016-05-09 09:36:46 FATAL Model:33 - org.sql2o.Sql2oException: Error in executeUpdate, ERREUR: valeur trop longue pour le type character varying(16)
+2016-05-09 11:16:05 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:16:05 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:16:06 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:16:06 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:17:12 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:17:12 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 11:31:30 FATAL Model:152 - org.sql2o.Sql2oException: Database error: ERREUR: plus d'une ligne renvoy�e par une sous-requ�te utilis�e comme une expression
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "debugscreen.ftl"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen_fr_FR.ftl"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen_fr.ftl"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen.ftl"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "debugscreen.ftl"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/debugscreen.ftl"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_main.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main_fr_FR.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main_fr.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main.css"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_main.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_main.css"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_code.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code_fr_FR.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code_fr.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code.css"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_code.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_code.css"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons_fr_FR.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons_fr.css"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min_fr_FR.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min_fr.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min_fr_FR.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min_fr.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min_fr_FR.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min_fr.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes_fr_FR.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes_fr.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"
+2016-05-09 19:15:21 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/sparkdebugtools_main.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main_fr_FR.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main_fr.js"): Not found
+2016-05-09 19:15:21 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main.js"): Found
+2016-05-09 19:15:21 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/sparkdebugtools_main.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/sparkdebugtools_main.js"
+2016-05-09 19:15:21 DEBUG cache:45 - "debugscreen.ftl"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/css/sparkdebugtools_main.css"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/css/sparkdebugtools_code.css"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:15:21 DEBUG cache:45 - "public/sparkdebugtools/js/sparkdebugtools_main.js"("fr_FR", UTF-8, parsed) cached copy not yet stale; using cached.
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "debugscreen.ftl"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen_fr_FR.ftl"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen_fr.ftl"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("debugscreen.ftl"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "debugscreen.ftl"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/debugscreen.ftl"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_main.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main_fr_FR.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main_fr.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_main.css"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_main.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_main.css"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_code.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code_fr_FR.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code_fr.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_code.css"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_code.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_code.css"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons_fr_FR.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons_fr.css"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/css/sparkdebugtools_exception-buttons.css"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min_fr_FR.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min_fr.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_zepto.min.js"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min_fr_FR.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min_fr.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_prettify.min.js"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min_fr_FR.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min_fr.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/lib/sparkdebugtools_clipboard.min.js"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes_fr_FR.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes_fr.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/sparkdebugtools_shrink-stackframes.js"
+2016-05-09 19:34:50 DEBUG cache:45 - Couldn't find template in cache for "public/sparkdebugtools/js/sparkdebugtools_main.js"("fr_FR", UTF-8, parsed); will try to load it.
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main_fr_FR.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main_fr.js"): Not found
+2016-05-09 19:34:50 DEBUG cache:45 - TemplateLoader.findTemplateSource("public/sparkdebugtools/js/sparkdebugtools_main.js"): Found
+2016-05-09 19:34:50 DEBUG cache:45 - Loading template for "public/sparkdebugtools/js/sparkdebugtools_main.js"("fr_FR", UTF-8, parsed) from "jar:file:/C:/Users/FABIEN/.m2/repository/com/sparkjava/spark-debug-tools/0.5/spark-debug-tools-0.5.jar!/public/sparkdebugtools/js/sparkdebugtools_main.js"

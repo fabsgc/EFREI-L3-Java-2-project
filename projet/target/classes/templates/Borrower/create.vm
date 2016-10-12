@@ -1,0 +1,17 @@
+#* @vtlvariable name="data" type="java.util.HashMap" *#
+#parse("/templates/includes/header.vm")
+<form method="POST" action="/borrowers/create">
+    <input type="hidden" name="borrower"/>
+    <label for="firstname">Prénom</label>
+    <input type="text" id="firstname" name="firstname" value="$data["firstname"]"><br />
+    <label for="lastname">Nom</label>
+    <input type="text" id="lastname" name="lastname" value="$data["lastname"]"><br />
+    <label for="street">Rue</label>
+    <input type="text" id="street" name="street" value="$data["street"]"><br />
+    <label for="pc">Code postal</label>
+    <input type="text" id="pc" name="pc" value="$data["pc"]"><br />
+    <label for="city">Ville</label>
+    <input type="text" id="city" name="city" value="$data["city"]"><br />
+    <input type="submit" value="Créer"/>
+</form>
+#parse("/templates/includes/footer.vm")

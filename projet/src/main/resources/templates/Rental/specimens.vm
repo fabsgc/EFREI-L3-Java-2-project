@@ -1,0 +1,14 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="specimens" type="java.util.ArrayList" *#
+#* @vtlvariable name="specimen" type="com.location.model.Specimen" *#
+{
+    "items": [
+        #foreach($specimen in $specimens)
+            {
+                "id": "$specimen.getId()",
+                "slug": "$specimen.getVehicle().getBrand() #if($specimen.getVehicle().getType() == 1) $specimen.getVehicle().getModel() #else $specimen.getVehicle().getCylinder() #end"
+            }#if( $foreach.hasNext), #end
+
+        #end
+    ]
+}

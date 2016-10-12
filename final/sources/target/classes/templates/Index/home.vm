@@ -1,0 +1,36 @@
+#parse("/templates/includes/header.vm")
+
+<div class="home-category">
+    <ul>
+        <li>
+            <a href="/user">
+                <i class="fa fa-user"></i>
+                <span class="title">Mon compte</span>
+            </a>
+        </li>
+        <li>
+            <a href="/vehicles">
+                <i class="fa fa-car"></i>
+                <span class="title">Véhicules</span>
+            </a>
+        </li>
+        <li>
+            <a href="/borrowers">
+                <i class="fa fa-users"></i>
+                <span class="title">Emprunteurs</span>
+            </a>
+        </li>
+        <li>
+            <a href="/rentals">
+                <i class="fa fa-credit-card"></i>
+                <span class="title">Emprunter</span>
+            </a>
+        </li>
+    </ul>
+    <div id="histograms">
+        <img src="/rentals/histogram/kilometers.png"/>
+        <img src="/rentals/histogram/bills.png"/>
+    </div>
+</div>
+
+#parse("/templates/includes/footer.vm")

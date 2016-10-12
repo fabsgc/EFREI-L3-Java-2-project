@@ -1,0 +1,26 @@
+#* @vtlvariable name="data" type="java.util.HashMap" *#
+#* @vtlvariable name="request" type="spark.Request" *#
+#parse("/templates/includes/header.vm")
+<form method="POST" action="/vehicles/specimens/create/$request.params(":id")">
+    <input type="hidden" name="specimen"/>
+    <label for="registrationplate">Plaque d'immatriculation</label>
+    <input type="text" id="registrationplate" name="registrationplate" value="$data["registrationplate"]"/><br />
+    <label for="state">Etat</label>
+    <select name="state" id="state">
+        <option value="0" #if($data.get("state").equals("0")) selected="selected" #end>Mauvais état</option>
+        <option value="1" #if($data.get("state").equals("1")) selected="selected" #end>Bon état</option>
+    </select><br />
+    <label for="fuel">Carburant</label>
+    <select name="fuel" id="fuel">
+        <option value="0" #if($data.get("fuel").equals("0")) selected="selected" #end>0%</option>
+        <option value="25" #if($data.get("fuel").equals("25")) selected="selected" #end>25%</option>
+        <option value="50" #if($data.get("fuel").equals("50")) selected="selected" #end>50%</option>
+        <option value="75" #if($data.get("fuel").equals("75")) selected="selected" #end>75%</option>
+        <option value="100" #if($data.get("fuel").equals("100")) selected="selected" #end>100%</option>
+    </select><br />
+    <label for="kilometers">Kilomètres</label>
+    <input type="number" id="kilometers" name="kilometers" value="$data["kilometers"]" min="0"/><br />
+    <input type="submit" value="Créer"/>
+</form>
+
+#parse("/templates/includes/footer.vm")

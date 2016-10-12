@@ -1,0 +1,178 @@
+#* @vtlvariable name="request" type="spark.Request" *#
+#* @vtlvariable name="rental" type="com.location.model.Rental" *#
+#* @vtlvariable name="rentalsCurrent" type="java.util.ArrayList" *#
+#* @vtlvariable name="rentalsEnded" type="java.util.ArrayList" *#
+#* @vtlvariable name="order" type="java.lang.String" *#
+#* @vtlvariable name="type" type="java.lang.String" *#
+#* @vtlvariable name="search" type="java.lang.String" *#
+#* @vtlvariable name="currentDate" type="java.util.Date" *#
+#* @vtlvariable name="dateTool" type="org.apache.velocity.tools.generic.DateTool" *#
+#* @vtlvariable name="averageKilometer" type="float" *#
+#* @vtlvariable name="averageBill" type="float" *#
+#* @vtlvariable name="medianKilometer" type="float" *#
+#* @vtlvariable name="medianBill" type="float" *#
+#* @vtlvariable name="standardKilometer" type="float" *#
+#* @vtlvariable name="standardBill" type="float" *#
+#parse("/templates/includes/header.vm")
+<a href="/rentals/create" class="button right">Nouvelle location</a>
+<div class="clear-right"></div>
+
+<form action="/rentals" method="post">
+    <input type="text" name="search" id="rental-search" value="$search"/>
+    <input type="submit" value="Actualiser" id="vehicle-search-submit"/>
+</form>
+
+<h3>Locations en cours</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="numero">Numéro</th>
+            <th>Emprunteur</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Assurance</th>
+            <th>Voitures</th>
+            <th>Prix</th>
+            <th class="action">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($rentalsCurrent.size() > 0)
+            #foreach($rental in $rentalsCurrent)
+            <tr>
+                <td><a href="/rentals/$rental.getId()">#$rental.getId()</a></td>
+                <td>$rental.getBorrower().getFirstName() $rental.getBorrower().getLastName()</td>
+                <td>$dateTool.format("dd/MM/yyyy", $rental.getBegin())</td>
+                <td>$dateTool.format("dd/MM/yyyy", $rental.getEnd())</td>
+                <td>
+                    #if($rental.getInsurance())
+                        oui
+                    #else
+                        non
+                    #end
+                </td>
+                <td>
+                    $rental.getSpecimenList().size()
+                </td>
+                <td>$rental.getBill() €</td>
+                <td>
+                    <a href="/rentals/back/$rental.getId()"><span class="fa fa-check"></span></a>
+                    <a href="/rentals/update/$rental.getId()"><span class="fa fa-pencil"></span></a>
+                    <a href="/rentals/delete/$rental.getId()"><span class="fa fa-times"></span></a>
+                </td>
+            </tr>
+            #end
+        #else
+        <tr>
+            <td class="empty" colspan="8">
+                <h5>Aucune location trouvée</h5>
+            </td>
+        </tr>
+        #end
+    </tbody>
+</table>
+<br />
+<h3>Locations terminées</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="numero">Numéro</th>
+            <th>Emprunteur</th>
+            <th>Début</th>
+            <th>Fin</th>
+            <th>Assurance</th>
+            <th class="action">Factures</th>
+        </tr>
+    </thead>
+    <tbody>
+        #if($rentalsEnded.size() > 0)
+            #foreach($rental in $rentalsEnded)
+            <tr>
+                <td>#$rental.getId()</td>
+                <td>$rental.getBorrower().getFirstName() $rental.getBorrower().getLastName()</td>
+                <td>$dateTool.format("dd/MM/yyyy", $rental.getBegin())</td>
+                <td>$dateTool.format("dd/MM/yyyy", $rental.getEnd())</td>
+                <td>
+                    #if($rental.getInsurance())
+                        oui
+                    #else
+                        non
+                    #end
+                </td>
+                <td>
+                    #set($pdfUrl = "bill-" + $rental.getId() + ".pdf")
+                    #set($txtUrl = "bill-" + $rental.getId() + ".txt")
+                    <a href="/$pdfUrl" ><span class="fa fa-file-pdf-o"></span></a>
+                    <a href="/$txtUrl"><span class="fa fa-file-word-o"></span></a>
+                </td>
+            </tr>
+            #end
+        #else
+        <tr>
+            <td class="empty" colspan="6">
+                <h5>Aucune location trouvée</h5>
+            </td>
+        </tr>
+        #end
+    </tbody>
+</table>
+<br />
+<h3>Statistiques Kilométrages</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Moyenne</th>
+            <th>Médiane</th>
+            <th>Ecart-type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$averageKilometer km</td>
+            <td>$medianKilometer km</td>
+            <td>$standardKilometer km</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<h3>Statistiques Factures</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Moyenne</th>
+            <th>Médiane</th>
+            <th>Ecart-type</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>$averageBill €</td>
+            <td>$medianBill €</td>
+            <td>$standardBill €</td>
+        </tr>
+    </tbody>
+</table>
+<script type="text/javascript">
+    $(function() {
+        $('input[name="search"]').daterangepicker({
+            locale: {
+                format: 'DD/MM/YYYY',
+                cancelLabel: 'Annuler',
+                applyLabel: 'Valider',
+                fromLabel: 'Du',
+                toLabel: 'Au',
+                customRangeLabel: 'Custom',
+                daysOfWeek: ['Lu', 'Ma', 'Me', 'Je', 'Ve', 'Sa','Di'],
+                monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                firstDay: 0
+            }
+
+            #if(!$search.equals(""))
+                ,startDate: "$search.split(" - ")[0]",
+                endDate: "$search.split(" - ")[1]"
+            #end
+        });
+    });
+</script>
+
+#parse("/templates/includes/footer.vm")

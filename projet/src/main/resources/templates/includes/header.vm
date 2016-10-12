@@ -1,0 +1,105 @@
+#* @vtlvariable name="filAriane" type="java.lang.String" *#
+#* @vtlvariable name="title" type="java.lang.String" *#
+#* @vtlvariable name="request" type="spark.Request" *#
+<!DOCTYPE html>
+<html style="opacity:0;">
+<head>
+    <meta charset="utf-8" />
+    <title>$title - Location</title>
+    <link rel="icon" type="image/png" href="/img/icon.png" />
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/css/daterangepicker.css" />
+    <link href="/css/default.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="/file/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen" type="text/css" />
+    <script type="text/javascript" src="/js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="/js/moment.min.js"></script>
+    <script type="text/javascript" src="/js/default.js"></script>
+    <script type="text/javascript" src="/js/daterangepicker.js"></script>
+</head>
+<body id="body">
+<header class="default">
+    <div id="header-left">
+        <a href="/"><i class="fa fa-car"></i> Location</a>
+    </div>
+    <div id="header-right">
+        <div class="right-account">
+            <div id="logout" class="account-logout">
+                <i class="fa fa-sign-out"></i>
+            </div>
+            <div class="account-profile">
+                <div class="profile-username">
+                    $request.session().attribute("firstname") - $request.session().attribute("lastname")
+                </div>
+                <div class="profile-avatar">
+                    <img src="/$request.session().attribute("avatar")"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"/>
+</header>
+<div id="side-menu">
+    <ul>
+        <li #if ($request.uri().equals("/") || $request.uri().equals("/home")) class="active" #end>
+            <a href="/">
+                <i class="fa fa-home"></i>
+                <span class="title">Accueil</span>
+            </a>
+        </li>
+        <li #if ($request.uri().matches("^/(user)(.*)")) class="active" #end>
+            <a href="/user">
+                <i class="fa fa-user"></i>
+                <span class="title">Mon compte</span>
+            </a>
+        </li>
+        <li #if ($request.uri().matches("^/(vehicles)(.*)")) class="active" #end>
+            <a href="/vehicles">
+                <i class="fa fa-car"></i>
+                <span class="title">Véhicules</span>
+            </a>
+        </li>
+        <li #if ($request.uri().matches("^/(borrowers)(.*)")) class="active" #end>
+            <a href="/borrowers">
+                <i class="fa fa-users"></i>
+                <span class="title">Emprunteurs</span>
+            </a>
+        </li>
+        <li #if ($request.uri().matches("^/(rentals)(.*)")) class="active" #end>
+            <a href="/rentals">
+                <i class="fa fa-credit-card"></i>
+                <span class="title">Emprunter</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<div id="main">
+    #if ($request.uri().equals("/"))
+        <h2>$title</h2>
+    #end
+    <div id="fil-ariane">
+        <ul>
+            #set($index = 0)
+
+            <li>
+                Accueil
+            </li>
+
+            #if($filAriane.size() > 0)
+                <span class="fa fa-chevron-right">&#160;</span>
+            #end
+
+            #foreach($value in $filAriane)
+                #set($index = $index + 1)
+
+                <li>
+                    $value
+                </li>
+
+                #if($filAriane.size() > 1 && $index < $filAriane.size())
+                    <span class="fa fa-chevron-right">&#160;</span>
+                #end
+            #end
+        </ul>
+    </div>
+    #parse("/templates/includes/flash.vm")
+

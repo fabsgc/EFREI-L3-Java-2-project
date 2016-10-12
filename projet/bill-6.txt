@@ -1,0 +1,20 @@
+Facture location #6
+
+Liste des véhicules loués
+
+- Marque : Peugeot
+- Etat : Bon état
+- Carburant : 0%
+- Kilomètres parcourus : 0km
+- Prix/jour : 150€
+
+- Prix de la location : 150.0€
+
+Majorations
+
+- Assurance : 25.0€
+- Etat : 0.0€
+- Retard : 0.0€
+- Carburant : 0.0€
+
+- Total : 175.0€

@@ -1,0 +1,9 @@
+com.location
+com.location.controller
+com.location.core.Exception
+com.location.core.dao
+com.location.core.form
+com.location.core.mvc
+com.location.core.template
+com.location.model
+com.location.util

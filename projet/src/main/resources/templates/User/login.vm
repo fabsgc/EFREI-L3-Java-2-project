@@ -1,0 +1,33 @@
+#* @vtlvariable name="title" type="java.lang.String" *#
+<!DOCTYPE html>
+<html style="opacity:0;">
+<head>
+    <meta charset="utf-8" />
+    <title>$title - GestNotes</title>
+    <link rel="icon" type="image/png" href="/img/icon.png" />
+    <link href="/css/login.css" rel="stylesheet" media="screen" type="text/css" />
+    <link href="/file/font-awesome/css/font-awesome.min.css" rel="stylesheet" media="screen" type="text/css" />
+    <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
+    <script type="text/javascript" src="js/login.js"></script>
+</head>
+<body id="body">
+<div id="main-login">
+    <header class="login">
+        <div id="logo">
+            <i class="fa fa-car"></i> Location
+        </div>
+    </header>
+    <div id="login" class="stack twisted">
+        <div class="content">
+            <div id="login-top">$title</div>
+            <div id="login-content">
+                <input type="text" id="username" placeholder="Nom d'utilisateur"/>
+                <input type="password" id="password" placeholder="Mot de passe"/>
+                <input type="button" id="send" value="Se connecter"/>
+                <div id="error"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

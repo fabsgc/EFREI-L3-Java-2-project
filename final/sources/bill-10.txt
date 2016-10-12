@@ -1,0 +1,20 @@
+Facture location #10
+
+Liste des véhicules loués
+
+- Marque : FIAT
+- Etat : Bon état
+- Carburant : 50%
+- Kilomètres parcourus : 47km
+- Prix/jour : 32€
+
+- Prix de la location : 32.0€
+
+Majorations
+
+- Assurance : 25.0€
+- Etat : 112.0€
+- Retard : 50.0€
+- Carburant : 50.0€
+
+- Total : 269.0€
